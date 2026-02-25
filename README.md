@@ -1,3 +1,38 @@
+```
+                                                     
+  Architecture                                                                  
+                                                                                
+  ┌─────────────────────────────────────────────────────────────────┐           
+  │                        OpenClaw                                  │          
+  │              (Agent Orchestrator - Claude Code)                  │          
+  │                                                                  │          
+  │  Task: "Summarize all open tabs across my browsers"              │          
+  └────────────────────────┬────────────────────────────────────────┘           
+                           │ spawns 3 parallel agents                           
+          ┌────────────────┼────────────────┐                                   
+          ▼                ▼                ▼                                   
+  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐                            
+  │ Chrome Agent │ │  Edge Agent  │ │ Atlas Agent  │                            
+  │  (Midscene)  │ │  (Midscene)  │ │  (Midscene)  │                            
+  └──────┬───────┘ └──────┬───────┘ └──────┬───────┘                            
+         │                │                │                                    
+         ▼                ▼                ▼                                    
+  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐                            
+  │    Chrome    │ │     Edge     │ │ ChatGPT Atlas│                            
+  │   Browser    │ │   Browser    │ │    Browser   │                            
+  └──────────────┘ └──────────────┘ └──────────────┘                            
+         │                │                │                                    
+         └────────────────┼────────────────┘                                    
+                          ▼                                                     
+                 ┌────────────────┐                                             
+                 │  Notion Log    │                                             
+                 │  (Summaries)   │                                             
+                 └────────────────┘   
+```
+
+
+
+
 <picture>
   <img alt="Agent TARS Banner" src="./images/tars.png">
 </picture>
